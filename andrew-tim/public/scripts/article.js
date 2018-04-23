@@ -21,6 +21,10 @@ Article.prototype.toHtml = function() {
 Article.loadAll = articleData => {
   articleData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
 
+  Article.all = articleData.map(article => {
+    new Article(article);
+  })
+
   /* OLD forEach():
   articleData.forEach(articleObject => Article.all.push(new Article(articleObject)));
   */
@@ -35,17 +39,17 @@ Article.fetchAll = callback => {
     })
 };
 
-Article.numWordsAll = () => {
-  return Article.all.map().reduce()
-};
+// Article.numWordsAll = () => {
+//   return Article.all.map('count the words for each entire objects').reduce( function(a, b) {return a + b});
+// };
 
-Article.allAuthors = () => {
-  return Article.all.map().reduce();
-};
+// Article.allAuthors = () => {
+//   return Article.all.map( function(a)).reduce();
+// };
 
-Article.numWordsByAuthor = () => {
-  return Article.allAuthors().map(author => {})
-};
+// Article.numWordsByAuthor = () => {
+//   return Article.allAuthors().map(author => {})
+// };
 
 Article.truncateTable = callback => {
   $.ajax({
@@ -90,3 +94,4 @@ Article.prototype.updateRecord = function(callback) {
     .then(console.log)
     .then(callback);
 };
+
