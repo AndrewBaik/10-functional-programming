@@ -24,11 +24,6 @@ Article.loadAll = articleData => {
   Article.all = articleData.map(article => {
     new Article(article);
   })
-
-  /* OLD forEach():
-  articleData.forEach(articleObject => Article.all.push(new Article(articleObject)));
-  */
-
 };
 
 Article.fetchAll = callback => {

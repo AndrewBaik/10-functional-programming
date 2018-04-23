@@ -116,7 +116,7 @@ articleView.submit = event => {
   article.insertRecord();
 
   // REVIEW: The following line of code redirects the user back to the home page after submitting the form.
-  window.location = '../';
+  window.location = '../index.html';
 }
 
 articleView.initIndexPage = () => {
@@ -135,7 +135,7 @@ articleView.initAdminPage = () => {
   // REVIEW: We use .forEach() here because we are relying on the side-effects of the callback function: appending to the DOM. The callback is not required to return anything.
 
 
-  // app.Article.numWordsByAuthor().forEach(stat => $('.author-stats').append(template(stat)));
+  app.Article.numWordsByAuthor().forEach(stat => $('.author-stats').append(template(stat)));
 
   // REVIEW: Simply write the correct values to the page:
   $('#blog-stats .articles').text(app.Article.all.length);
